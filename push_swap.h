@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:57:01 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/12 19:10:46 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/15 21:42:59 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,17 @@ void push_a(t_list *stack_b, t_list *stack_a);
 void push_b(t_list *stack_a, t_list *stack_b);
 
 // rotate operations
-void    rotate(t_list *stack);
-void    rotate_a(t_list *stack_a);
-void    rotate_b(t_list *stack_b);
-void    rotate_both(t_list *stack_a, t_list *stack_b);
+void    rotate(t_list **stack);
+void    rotate_a(t_list **stack_a);
+void    rotate_b(t_list **stack_b);
+void    rotate_both(t_list **stack_a, t_list **stack_b);
 
-// cc -Wall -Wextra -Werror push_swap.c rotate_operations.c ft_atoi.c ft_lstadd_back.c ft_lstadd_front.c ft_lstnew.c ft_putstr_fd.c ft_split.c ft_strlcpy.c ft_strlen.c
+// reverse rotate operations
+void    reverse_rotate(t_list **stack);
+void    reverse_rotate_a(t_list **stack_a);
+void    reverse_rotate_b(t_list **stack_b);
+void    reverse_rotate_both(t_list **stack_a, t_list **stack_b);
+
+// cc -Wall -Wextra -Werror push_swap.c rotate_operations.c ft_atoi.c ft_lstadd_back.c ft_lstadd_front.c ft_lstnew.c ft_putstr_fd.c ft_split.c ft_strlcpy.c ft_strlen.c reverse_rotate_operations.c
 
 #endif

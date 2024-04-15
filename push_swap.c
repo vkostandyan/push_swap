@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:58:41 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/12 20:12:24 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/15 21:42:26 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,17 @@ int main(int argc, char *argv[])
         // printf("\n");
         stack_a = stack_a->next;
     }
-    printf("\n");
+    // printf("\n");
     stack_a = temp;
-    rotate_a(stack_a);
+    reverse_rotate_a(&stack_a);
     int i = 0;
     while (stack_a)
     {
+        printf("%d\n", stack_a->value);
         stack_a = stack_a->next;
         i++;
     }
-    printf("%d\n", i);
+    // printf("%d\n", i);
     // while (stack_a)
     // {
     //     // printf("\n");
