@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:57:01 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/15 21:42:59 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/16 18:14:28 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ void    reverse_rotate_a(t_list **stack_a);
 void    reverse_rotate_b(t_list **stack_b);
 void    reverse_rotate_both(t_list **stack_a, t_list **stack_b);
 
-// cc -Wall -Wextra -Werror push_swap.c rotate_operations.c ft_atoi.c ft_lstadd_back.c ft_lstadd_front.c ft_lstnew.c ft_putstr_fd.c ft_split.c ft_strlcpy.c ft_strlen.c reverse_rotate_operations.c
+// q
 
 #endif
