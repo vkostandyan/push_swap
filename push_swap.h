@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:57:01 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/16 18:14:28 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:36:44 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,20 @@ typedef struct s_list
 // void	ft_lstadd_back(t_list *lst, t_list *new);
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-int	    ft_atoi(const char *str);
+long long	    ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int	    ft_strlen(const char *s);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+
+// validation
+// int	ft_isdigit(char c);
+// int	ft_issign(char c);
+// int	is_number(char *str);
+// int is_int(char *str);
+int check(char *str);
+int	check_input(char **argv);
 
 
 // swap operations
@@ -59,6 +67,8 @@ void    reverse_rotate_a(t_list **stack_a);
 void    reverse_rotate_b(t_list **stack_b);
 void    reverse_rotate_both(t_list **stack_a, t_list **stack_b);
 
-// q
+// Error 
+void print_error();
+
 
 #endif

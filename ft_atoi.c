@@ -6,25 +6,21 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 14:16:46 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/11 18:12:32 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:36:46 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
 	int	i;
-	int	result;
+	long	result;
 	int	minus;
 
 	i = 0;
 	minus = 1;
 	result = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-	{
-		i++;
-	}
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
@@ -33,6 +29,7 @@ int	ft_atoi(const char *str)
 		}
 		i++;
 	}
+	
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - '0');
@@ -40,12 +37,12 @@ int	ft_atoi(const char *str)
 	}
 	return (result * minus);
 }
-/*
-#include <stdio.h>
 
-int	main(void)
-{
-	const char *str1 = "a1";
-	printf("%d", ft_atoi(str1));
-	return (0);
-}*/
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	const char *str1 = "--1";
+// 	printf("%d\n", ft_atoi(str1));
+// 	return (0);
+// }

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 15:52:38 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/11 17:01:55 by vkostand         ###   ########.fr       */
+/*   Created: 2024/01/23 15:32:31 by vkostand          #+#    #+#             */
+/*   Updated: 2024/04/17 15:09:06 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_isdigit(char c)
 {
-	int	i;
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+int	ft_issign(char c)
+{
+	if (c == '-' || c == '+')
+		return (1);
+	return (0);
 }
