@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:57:01 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/17 16:36:44 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/19 18:56:26 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,9 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 
 // validation
-// int	ft_isdigit(char c);
-// int	ft_issign(char c);
-// int	is_number(char *str);
-// int is_int(char *str);
-int check(char *str);
+int	is_number(char *str);
 int	check_input(char **argv);
-
+int have_dublicate(int *numbers);
 
 // swap operations
 void swap(t_list *stack);
@@ -68,7 +64,7 @@ void    reverse_rotate_b(t_list **stack_b);
 void    reverse_rotate_both(t_list **stack_a, t_list **stack_b);
 
 // Error 
-void print_error();
+// void print_error();
 
 
 #endif

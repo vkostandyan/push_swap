@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 14:16:46 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/17 15:36:46 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/19 13:35:50 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ long long	ft_atoi(const char *str)
 		}
 		i++;
 	}
-	
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - '0');
