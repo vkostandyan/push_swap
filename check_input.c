@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:53:20 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/19 19:05:02 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/19 19:26:51 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,11 +114,11 @@ int	check_input(char **argv)
 // 	(void)argc;
 // 	if (!check_input(argv))
 // 	{
-// 		system("leaks a.out");
+// 		// system("leaks a.out");
 // 		return (0);
 // 	}
 // 	printf("\n");
-// 	system("leaks a.out");
+// 	// system("leaks a.out");
 // 	return (0);
 // }
 
