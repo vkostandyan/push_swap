@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:45:34 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/16 16:50:48 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/20 14:49:09 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,43 @@
 
 t_list	*get_stack_bottom(t_list **stack)
 {
-    t_list *ptr;
-    
-    ptr = *stack;
+	t_list	*ptr;
+
+	ptr = *stack;
 	while (ptr->next != NULL)
 		ptr = ptr->next;
 	return (ptr);
 }
 
-void rotate(t_list **stack)
+void	rotate(t_list **stack)
 {
-    t_list *temp;
-    t_list *last;
-    
-    if (!*stack || !(*stack)->next)
-        return ;    
-    temp = *stack;
-    *stack = (*stack)->next;
-    temp->next = NULL;
-    last = get_stack_bottom(stack);
-    last->next = temp;
+	t_list	*temp;
+	t_list	*last;
+
+	if (!*stack || !(*stack)->next)
+		return ;
+	temp = *stack;
+	*stack = (*stack)->next;
+	temp->next = NULL;
+	last = get_stack_bottom(stack);
+	last->next = temp;
 }
 
-void    rotate_a(t_list **stack_a)
+void	rotate_a(t_list **stack_a)
 {
-    rotate(stack_a);
-    ft_putstr_fd("ra\n", 1);
+	rotate(stack_a);
+	ft_putstr_fd("ra\n", 1);
 }
 
-void    rotate_b(t_list **stack_b)
+void	rotate_b(t_list **stack_b)
 {
-    rotate(stack_b);
-    ft_putstr_fd("rb\n", 1);
+	rotate(stack_b);
+	ft_putstr_fd("rb\n", 1);
 }
 
-void    rotate_both(t_list **stack_a, t_list **stack_b)
+void	rotate_both(t_list **stack_a, t_list **stack_b)
 {
-    rotate(stack_a);
-    rotate(stack_b);
-    ft_putstr_fd("rr\n", 1);
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_putstr_fd("rr\n", 1);
 }

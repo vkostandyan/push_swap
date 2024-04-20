@@ -6,36 +6,31 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:53:20 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/19 19:26:51 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/20 21:58:25 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	is_int(char *str)
-{
-	long long	n;
-
-	n = ft_atoi(str);
-	if (n < -2147483648 || n > 2147483647)
-		return (0);
-	return (1);
-}
 
 static int	all_numbers(char **argv)
 {
 	int		i;
 	int		j;
 	char	**str;
+	int 	c;
 
 	i = 1;
+	c = 0;
 	while (argv[i])
 	{
 		str = ft_split(argv[i], ' ');
 		j = 0;
 		while (str[j])
 		{
-			if (!is_number(str[j]) || !is_int(str[j]))
+			if (!is_number(str[j]))
+				return (0);
+			c += is_zero(str[j]);
+			if (c > 1)
 				return (0);
 			j++;
 		}
@@ -45,7 +40,32 @@ static int	all_numbers(char **argv)
 	return (1);
 }
 
-static int	*take_numbers(char *argv[])
+int	count_len(char **argv)
+{
+	char	**str;
+	int		i;
+	int		j;
+	int		c;
+	int 	len;
+
+	i = 0;
+	c = -1;
+	len = 0;
+	while (argv[++i])
+	{
+		j = 0;
+		str = ft_split(argv[i], ' ');
+		while (str[j])
+		{
+			j++;
+			len++;
+		}
+		free(str);
+	}
+	return (len);
+}
+
+int	*take_numbers(char **argv, int len)
 {
 	char	**str;
 	int		*numbers;
@@ -55,7 +75,7 @@ static int	*take_numbers(char *argv[])
 
 	i = 1;
 	c = 0;
-	numbers = (int *)malloc(sizeof(str));
+	numbers = (int *)malloc(sizeof(int) * len);
 	if (!numbers)
 		return (0);
 	while (argv[i])
@@ -65,22 +85,22 @@ static int	*take_numbers(char *argv[])
 		while (str[j])
 		{
 			numbers[c] = ft_atoi(str[j]);
-			c++;
+            c++;
 			j++;
 		}
 		free(str);
-		i++;
+        i++;
 	}
 	return (numbers);
 }
 
-int	have_dublicate(int *numbers)
+static int	have_dublicate(int *numbers, int len)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (numbers[i])
+	while (i < len)
 	{
 		j = i + 1;
 		while (numbers[j] && numbers[i] != numbers[j])
@@ -98,9 +118,11 @@ int	have_dublicate(int *numbers)
 int	check_input(char **argv)
 {
 	int	*numbers;
+    int len;
 
-	numbers = take_numbers(argv);
-	if (!all_numbers(argv) || have_dublicate(numbers))
+    len = count_len(argv);
+	numbers = take_numbers(argv, len);
+	if (!all_numbers(argv) || have_dublicate(numbers, len))
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (0);
@@ -109,61 +131,24 @@ int	check_input(char **argv)
 	return (1);
 }
 
-// int	main(int argc, char **argv)
+// int main(int argc, char **argv)
 // {
-// 	(void)argc;
-// 	if (!check_input(argv))
-// 	{
-// 		// system("leaks a.out");
-// 		return (0);
-// 	}
-// 	printf("\n");
-// 	// system("leaks a.out");
-// 	return (0);
+//     int i = 0;
+//     (void)argc;
+//     int len = count_len(argv);
+//     printf("len = %d\n", len);
+//     int *numbers = take_numbers(argv, len);
+//     while (i < len)
+//     {
+//         printf("%d\n", numbers[i]);
+//         i++;
+//     }
+//     if (have_dublicate(numbers, len))
+//         printf("Has dublicate\n");
+//     else 
+//         printf("Does not have dublicate\n");
+//     printf("result --> %d\n", check_input(argv));
+//     printf("All numbers --> %d\n", all_numbers(argv));
+//     return(0);
 // }
 
-// static int is_int(int n)
-// {
-//     if (n < -2147483648 || n > 2147483647)
-//         return (0);
-//     return (1);
-// }
-
-// int	check_input(char **argv)
-// {
-// 	int *numbers;
-// 	int i;
-// 	int j;
-
-// 	i = 0;
-// 	j = 1;
-// 	numbers = take_numbers(argv);
-// 	// while(i < 5)
-// 	// {
-// 	// 	printf("%d\n", numbers[i]);
-// 	// 	i++;
-// 	// }
-// 	// i = 0;
-// 	if(!numbers)
-// 		return(0);
-// 	while(i < 5)
-// 	{
-// 		printf("\n");
-// 		if(!is_number(argv[j]) || !is_int(numbers[i]))
-// 		{
-// 			free(numbers);
-// 			return (0);
-// 		}
-// 		i++;
-// 		j++;
-// 	}
-// 	free(numbers);
-// 	return (1);
-// }
-
-// int	main(int argc, char **argv)
-// {
-// 	(void)argc;
-// 	printf("%d\n", have_dublicate(argv));
-// 	return (0);
-// }

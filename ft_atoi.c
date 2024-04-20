@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 14:16:46 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/19 13:35:50 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/20 14:49:57 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long long	ft_atoi(const char *str)
 {
-	int	i;
+	int		i;
 	long	result;
-	int	minus;
+	int		minus;
 
 	i = 0;
 	minus = 1;

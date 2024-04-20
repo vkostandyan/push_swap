@@ -1,14 +1,27 @@
-NAME = push_swap.a
+NAME = push_swap
 
-HEADER = push_swap.h
+CFLAGS = -Wall -Wextra -Werror
 
-C_FLAGS = -Wall -Wextra -Werror
+HDR = push_swap.h
 
-SRCS = push_swap.c push_operations.c swap_operations.c rotate_operations.c reverse_rotate_operations.c check_input.c check_input_utils.c \
-		ft_atoi.c ft_lstadd_back.c ft_lstnew.c ft_putstr_fd.c ft_split.c ft_strlcpy.c ft_strlen.c
+CC = cc
 
-OBJS = ${SRCS.c=.o}
+SRCS =  push_operations.c swap_operations.c rotate_operations.c reverse_rotate_operations.c check_input.c check_input_utils.c \
+		ft_atoi.c ft_lstadd_back.c ft_lstnew.c ft_putstr_fd.c ft_split.c ft_strlcpy.c ft_strlen.c ft_lstadd_front.c
+
+OBJS = ${SRCS:.c=.o}
 
 all: ${NAME}
 
-${NAME}: 
+${NAME}: ${OBJS} ${HDR} Makefile
+	@$(CC) $(OBJS) push_swap.c -o $(NAME)
+
+clean:
+	rm -rf ${OBJS}
+
+fclean: clean
+	rm -rf ${NAME}
+
+re: fclean ${NAME}
+
+.PHONY: all clean fclean re
