@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:53:20 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/20 21:58:25 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/23 19:39:39 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,19 @@ static int	all_numbers(char **argv)
 		while (str[j])
 		{
 			if (!is_number(str[j]))
+			{
+				free_split(str);
 				return (0);
+			}
 			c += is_zero(str[j]);
 			if (c > 1)
+			{
+				free_split(str);
 				return (0);
+			}
 			j++;
 		}
-		free(str);
+		free_split(str);
 		i++;
 	}
 	return (1);
@@ -60,7 +66,7 @@ int	count_len(char **argv)
 			j++;
 			len++;
 		}
-		free(str);
+		free_split(str);
 	}
 	return (len);
 }
@@ -88,7 +94,7 @@ int	*take_numbers(char **argv, int len)
             c++;
 			j++;
 		}
-		free(str);
+		free_split(str);
         i++;
 	}
 	return (numbers);
@@ -115,16 +121,19 @@ static int	have_dublicate(int *numbers, int len)
 	return (0);
 }
 
-int	check_input(char **argv)
+int	check_input(int argc, char **argv)
 {
 	int	*numbers;
     int len;
 
+	if (argc < 2)
+		return (0);
     len = count_len(argv);
 	numbers = take_numbers(argv, len);
-	if (!all_numbers(argv) || have_dublicate(numbers, len))
+	if (!all_numbers(argv) || have_dublicate(numbers, len) || !not_empty(argv))
 	{
 		ft_putstr_fd("Error\n", 2);
+		// free(numbers);
 		return (0);
 	}
 	free(numbers);

@@ -6,20 +6,20 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 16:22:28 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/20 21:58:54 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/22 20:02:17 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_isdigit(char c)
+int	ft_isdigit(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
 
-static int	ft_issign(char c)
+int	ft_issign(char c)
 {
 	if (c == '-' || c == '+')
 		return (1);

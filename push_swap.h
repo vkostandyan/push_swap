@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:57:01 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/20 21:33:50 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/23 21:22:38 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,15 @@
 
 typedef struct s_list
 {
+	int				index;
 	int				value;
 	struct s_list	*next;
 }					t_list;
+
+// fill free 
+t_list				*fill_stack_values(char **argv);
+void 				free_stack(t_list *stack_a, char **argv);
+void 				free_split(char **str);
 
 // helpers
 // void	ft_lstadd_back(t_list *lst, t_list *new);
@@ -36,22 +42,24 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 
 // validation
-int	is_number(char *str);
-int	is_zero(char *str);
-int	*take_numbers(char **argv, int len);
-int	count_len(char **argv);
-int	check_input(char **argv);
+int					is_number(char *str);
+int					is_zero(char *str);
+int					*take_numbers(char **argv, int len);
+int					count_len(char **argv);
+int					check_input(int argc, char **argv);
+int 				not_empty(char **argv);
+int					ft_issign(char c);
+int					ft_isdigit(char c);
+// int 				len_is_valid(char *str);
 
 
 
-// int					is_number(char *str);
-// int					check_input(char **argv);
-// int					have_dublicate(int *numbers);
-// int					*take_numbers(char *argv[]);
-// // int 				is_zero(char *str);
-// int					count_len(char *argv[]);
+// int 				is_empty_string(char *str);
+// int 				is_empty(char *str);
 
 
+// sorting
+void 				sort_three(t_list *stack_a);
 
 // swap operations
 void				swap(t_list *stack);
