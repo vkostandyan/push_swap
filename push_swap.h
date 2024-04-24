@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:57:01 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/23 21:22:38 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/24 20:49:10 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void 				free_stack(t_list *stack_a, char **argv);
 void 				free_split(char **str);
 
 // helpers
-// void	ft_lstadd_back(t_list *lst, t_list *new);
 t_list				*ft_lstnew(int content);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 long long			ft_atoi(const char *str);
@@ -50,16 +49,17 @@ int					check_input(int argc, char **argv);
 int 				not_empty(char **argv);
 int					ft_issign(char c);
 int					ft_isdigit(char c);
-// int 				len_is_valid(char *str);
 
-
-
-// int 				is_empty_string(char *str);
-// int 				is_empty(char *str);
+// stack utils
+int 				is_sorted(t_list *stack);
 
 
 // sorting
 void 				sort_three(t_list *stack_a);
+int 				get_optimal_step(int len);
+void 				push_swap(char **argv);
+
+
 
 // swap operations
 void				swap(t_list *stack);

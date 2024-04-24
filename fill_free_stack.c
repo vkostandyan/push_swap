@@ -28,10 +28,7 @@ t_list	*fill_stack_values(char **argv)
 	{
 		new = ft_lstnew(numbers[i]);
 		if (!new)
-        {
-            // free(numbers);
 			return (NULL);
-        }
 		ft_lstadd_back(&stack_a, new);
 		i++;
 	}

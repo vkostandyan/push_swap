@@ -6,26 +6,49 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 21:57:44 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/23 21:13:26 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/24 19:35:26 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int *sorted_array(char **argv)
 {
-	t_list	*stack_a;
+	int i;
+	int temp;
+	int *arr;
+	int len;
 
-	if (!check_input(argc, argv))
-		return (0);
-	stack_a = fill_stack_values(argv);
-	sort_three(stack_a);
-	// while (stack_a)
-	// {
-	// 	printf("%d\n", stack_a->value);
-	// 	stack_a = stack_a->next;
-	// }
-	// free_stack(stack_a, argv);
-	// system("leaks push_swap");
-	return (0);
+	i = 0;
+	len = count_len(argv);
+	arr = take_numbers(argv, len);
+	if (!arr || !len)
+		return (NULL);
+	while (i < len - 1)
+	{
+		if (arr[i] > arr[i + 1])
+		{
+			temp = arr[i];
+			arr[i] = arr[i + 1];
+			arr[i + 1] = temp;
+			i = 0;
+		}	
+		else
+			i++;
+	}
+	return (arr);
+}
+
+void push_swap(char **argv)
+{
+	int *arr;
+	int i = 0;
+	int len = count_len(argv);
+	
+	arr = sorted_array(argv);
+	while (i < len)
+	{
+		printf("%d\n", arr[i]);
+		i++;
+	}
 }
