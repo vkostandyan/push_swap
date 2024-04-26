@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_four.c                                        :+:      :+:    :+:   */
+/*   sort_for2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 21:24:00 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/24 14:35:38 by vkostand         ###   ########.fr       */
+/*   Created: 2024/04/26 13:05:26 by vkostand          #+#    #+#             */
+/*   Updated: 2024/04/26 13:12:34 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void sort_four(t_list *stack_a)
-// {
-    
-// }
-
-// int find_index()
+void sort_for2(t_list **stack)
+{
+    if ((*stack)->value > (*stack)->next->value)
+        swap_a(stack);
+}

@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 21:57:44 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/24 19:35:26 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:03:28 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,21 @@ int *sorted_array(char **argv)
 	return (arr);
 }
 
-void push_swap(char **argv)
+void push_swap(char **argv, t_list *stack_a, t_list *stack_b)
 {
-	int *arr;
-	int i = 0;
-	int len = count_len(argv);
+	int *sorted_arr;
+	int len;
 	
-	arr = sorted_array(argv);
-	while (i < len)
-	{
-		printf("%d\n", arr[i]);
-		i++;
-	}
+	len = count_len(argv);
+	sorted_arr = sorted_array(argv);
+	if (len == 2)
+		sort_for2(&stack_a);
+	else if (len == 3)
+		sort_for3(&stack_a);
+	else if (len == 4)
+		sort_for4(&stack_a, &stack_b, argv);
+	else if (len == 5)
+		sort_for5(&stack_a, &stack_b, argv);
+	else 
+		sort(&stack_a, &stack_b, sorted_arr, len);
 }

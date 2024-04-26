@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:53:20 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/24 20:58:13 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:55:16 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ int	check_input(int argc, char **argv)
 	int	*numbers;
     int len;
 
-	if (argc < 2)
+	if (argc < 3)
 		return (0);
     len = count_len(argv);
 	numbers = take_numbers(argv, len);

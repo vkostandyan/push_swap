@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 21:23:41 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/24 17:12:35 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:22:21 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ int get_optimal_step(int len)
 	return (ft_sqrt(len) + ft_log2(len) - 1);
 }
 
-int main()
-{
-	printf("%d", get_optimal_step(100));
-	return (0);
-}
+// int main()
+// {
+// 	printf("%d", get_optimal_step(100));
+// 	return (0);
+// }
 
 

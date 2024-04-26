@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:57:01 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/24 20:49:10 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/26 14:55:07 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,26 +51,33 @@ int					ft_issign(char c);
 int					ft_isdigit(char c);
 
 // stack utils
-int 				is_sorted(t_list *stack);
+int 				is_sorted(t_list **stack);
 
 
 // sorting
-void 				sort_three(t_list *stack_a);
 int 				get_optimal_step(int len);
-void 				push_swap(char **argv);
+void 				push_swap(char **argv, t_list *stack_a, t_list *stack_b);
+void				sort(t_list **stack_a, t_list **stack_b, int *arr, int len);
+void 				push_back(t_list **stack_a, t_list **stack_b, int len);
 
+
+//sort
+void 				sort_for2(t_list **stack);
+void 				sort_for3(t_list **stack_a);
+void 				sort_for4(t_list **stack_a, t_list **stack_b, char **argv);
+void 				sort_for5(t_list **stack_a, t_list **stack_b, char **argv);
 
 
 // swap operations
-void				swap(t_list *stack);
-void				swap_a(t_list *stack_a);
-void				swap_b(t_list *stack_b);
-void				swap_both(t_list *stack_a, t_list *stack_b);
+void				swap(t_list **stack);
+void				swap_a(t_list **stack_a);
+void				swap_b(t_list **stack_b);
+void				swap_both(t_list **stack_a, t_list **stack_b);
 
 // push operations
-void				push(t_list *stack_from, t_list *stack_to);
-void				push_a(t_list *stack_b, t_list *stack_a);
-void				push_b(t_list *stack_a, t_list *stack_b);
+void				push(t_list **stack_from, t_list **stack_to);
+void				push_a(t_list **stack_b, t_list **stack_a);
+void				push_b(t_list **stack_a, t_list **stack_b);
 
 // rotate operations
 void				rotate(t_list **stack);
