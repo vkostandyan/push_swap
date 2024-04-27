@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:53:20 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/26 15:55:16 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/27 14:30:48 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	all_numbers(char **argv)
 	int		i;
 	int		j;
 	char	**str;
-	int 	c;
+	int		c;
 
 	i = 1;
 	c = 0;
@@ -27,13 +27,8 @@ static int	all_numbers(char **argv)
 		j = 0;
 		while (str[j])
 		{
-			if (!is_number(str[j]))
-			{
-				free_split(str);
-				return (0);
-			}
 			c += is_zero(str[j]);
-			if (c > 1)
+			if (c > 1 || !is_number(str[j]))
 			{
 				free_split(str);
 				return (0);
@@ -52,7 +47,7 @@ int	count_len(char **argv)
 	int		i;
 	int		j;
 	int		c;
-	int 	len;
+	int		len;
 
 	i = 0;
 	c = -1;
@@ -91,11 +86,11 @@ int	*take_numbers(char **argv, int len)
 		while (str[j])
 		{
 			numbers[c] = ft_atoi(str[j]);
-            c++;
+			c++;
 			j++;
 		}
 		free_split(str);
-        i++;
+		i++;
 	}
 	return (numbers);
 }
@@ -109,12 +104,11 @@ static int	have_dublicate(int *numbers, int len)
 	while (i < len)
 	{
 		j = i + 1;
-		while (numbers[j] && numbers[i] != numbers[j])
-			j++;
-		if (numbers[j])
+		while (j < len)
 		{
-			free(numbers);
-			return (1);
+			if (numbers[j] == numbers[i])
+				return (1);
+			j++;
 		}
 		i++;
 	}
@@ -124,11 +118,11 @@ static int	have_dublicate(int *numbers, int len)
 int	check_input(int argc, char **argv)
 {
 	int	*numbers;
-    int len;
+	int	len;
 
-	if (argc < 3)
+	if (argc < 2)
 		return (0);
-    len = count_len(argv);
+	len = count_len(argv);
 	numbers = take_numbers(argv, len);
 	if (!all_numbers(argv) || have_dublicate(numbers, len) || !not_empty(argv))
 	{
@@ -153,10 +147,9 @@ int	check_input(int argc, char **argv)
 //     }
 //     if (have_dublicate(numbers, len))
 //         printf("Has dublicate\n");
-//     else 
+//     else
 //         printf("Does not have dublicate\n");
 //     printf("result --> %d\n", check_input(argv));
 //     printf("All numbers --> %d\n", all_numbers(argv));
 //     return(0);
 // }
-

@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 16:22:28 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/22 20:02:17 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/27 14:28:04 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ int	is_number(char *str)
 	int	i;
 
 	i = 0;
-    if (!is_int(str))
-        return (0);
-    if (is_zero(str))
-        return (1);
+	if (!is_int(str))
+		return (0);
+	if (is_zero(str))
+		return (1);
 	if (!ft_isdigit(str[i]) && !ft_issign(str[i]))
 		return (0);
 	i++;

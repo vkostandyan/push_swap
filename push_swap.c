@@ -6,18 +6,18 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 21:57:44 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/26 15:03:28 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/27 14:03:36 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *sorted_array(char **argv)
+int	*sorted_array(char **argv)
 {
-	int i;
-	int temp;
-	int *arr;
-	int len;
+	int	i;
+	int	temp;
+	int	*arr;
+	int	len;
 
 	i = 0;
 	len = count_len(argv);
@@ -32,28 +32,34 @@ int *sorted_array(char **argv)
 			arr[i] = arr[i + 1];
 			arr[i + 1] = temp;
 			i = 0;
-		}	
+		}
 		else
 			i++;
 	}
 	return (arr);
 }
 
-void push_swap(char **argv, t_list *stack_a, t_list *stack_b)
+void	push_swap(char **argv, t_list **stack_a, t_list **stack_b)
 {
-	int *sorted_arr;
-	int len;
-	
+	int	*sorted_arr;
+	int	len;
+
 	len = count_len(argv);
 	sorted_arr = sorted_array(argv);
+	if (is_sorted(stack_a))
+	{
+		free(sorted_arr);
+		return ;
+	}
 	if (len == 2)
-		sort_for2(&stack_a);
+		sort_for2(stack_a);
 	else if (len == 3)
-		sort_for3(&stack_a);
+		sort_for3(stack_a);
 	else if (len == 4)
-		sort_for4(&stack_a, &stack_b, argv);
+		sort_for4(stack_a, stack_b, argv);
 	else if (len == 5)
-		sort_for5(&stack_a, &stack_b, argv);
-	else 
-		sort(&stack_a, &stack_b, sorted_arr, len);
+		sort_for5(stack_a, stack_b, argv);
+	else
+		sort(stack_a, stack_b, sorted_arr, len);
+	free(sorted_arr);
 }

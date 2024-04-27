@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 21:23:41 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/25 16:22:21 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/04/27 14:24:38 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ static int	ft_sqrt(int nb)
 	return (i);
 }
 
-static int	    is_power_of_2(unsigned int n)
+static int	is_power_of_2(unsigned int n)
 {
 	if (n == 0)
 		return (0);
-	while(n > 1)
+	while (n > 1)
 	{
 		if (n % 2 != 0)
 			return (0);
@@ -43,11 +43,11 @@ static int	    is_power_of_2(unsigned int n)
 	return (1);
 }
 
-static int ft_log2(int nb)
+static int	ft_log2(int nb)
 {
-	int i;
-	int log;
-	
+	int	i;
+	int	log;
+
 	i = nb;
 	log = 0;
 	while (i > 0)
@@ -66,7 +66,7 @@ static int ft_log2(int nb)
 	return (0);
 }
 
-int get_optimal_step(int len)
+int	get_optimal_step(int len)
 {
 	return (ft_sqrt(len) + ft_log2(len) - 1);
 }
@@ -76,5 +76,3 @@ int get_optimal_step(int len)
 // 	printf("%d", get_optimal_step(100));
 // 	return (0);
 // }
-
-
