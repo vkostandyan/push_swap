@@ -6,13 +6,13 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:02:48 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/27 17:19:25 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:24:16 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strchr(const char *s, int c)
+int	gnl_strchr(const char *s, int c)
 {
 	int		i;
 
@@ -30,17 +30,17 @@ int	ft_strchr(const char *s, int c)
 	return (0);
 }
 
-// int	ft_strlen(const char *s)
-// {
-// 	int	i;
+int	gnl_strlen(const char *s)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (s[i])
-// 		i++;
-// 	return (i);
-// }
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
-char	*ft_join(char *buffer, char *line)
+char	*gnl_join(char *buffer, char *line)
 {
 	char	*temp;
 
@@ -51,11 +51,11 @@ char	*ft_join(char *buffer, char *line)
 			return (NULL);
 		buffer[0] = '\0';
 	}
-	temp = ft_strjoin(buffer, line);
+	temp = gnl_strjoin(buffer, line);
 	return (temp);
 }
 
-char	*ft_strjoin(char *buffer, char *line)
+char	*gnl_strjoin(char *buffer, char *line)
 {
 	char	*s;
 	int		i;
@@ -64,7 +64,7 @@ char	*ft_strjoin(char *buffer, char *line)
 	if (!buffer || !line)
 		return (NULL);
 	s = (char *)malloc(sizeof(char)
-			* (ft_strlen(buffer) + ft_strlen(line) + 1));
+			* (gnl_strlen(buffer) + gnl_strlen(line) + 1));
 	if (s == NULL)
 		return (NULL);
 	i = 0;

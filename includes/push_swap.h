@@ -6,14 +6,13 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:57:01 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/27 18:37:43 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/06/11 20:04:05 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// # include "get_next_line/get_next_line.h"
 # include "get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
@@ -21,7 +20,6 @@
 
 typedef struct s_list
 {
-	int				index;
 	int				value;
 	struct s_list	*next;
 }					t_list;
@@ -38,7 +36,7 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int					ft_strlen(const char *s);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_lstadd_front(t_list **lst, t_list *new);
-int					strcmp(const char *s1, const char *s2);
+int					ft_strcmp(const char *s1, char *s2);
 
 int					is_number(char *str);
 int					is_zero(char *str);

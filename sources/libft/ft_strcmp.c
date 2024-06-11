@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 19:13:38 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/27 17:16:54 by vkostand         ###   ########.fr       */
+/*   Created: 2024/01/24 19:54:40 by vkostand          #+#    #+#             */
+/*   Updated: 2024/06/11 19:25:28 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "push_swap.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
+int	ft_strcmp(const char *s1, char *s2)
+{
+	int	i;
 
-# include <fcntl.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
+	i = 0;
+	while (s1[i] == s2[i] && (s1[i] != '\0' || s2[i] != '\0'))
+		i++;
+	return (s1[i] - s2[i]);
+}
 
-char	*get_next_line(int fd);
-int		ft_strlen(const char *s);
-int		ft_strchr(const char *s, int c);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_join(char *s1, char *s2);
-
-#endif
+// int main()
+// {
+// 	printf("%d", ft_strcmp("sa\n", "sa\n"));
+// 	return (0);
+// }

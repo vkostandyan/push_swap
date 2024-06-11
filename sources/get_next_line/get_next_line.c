@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:53:33 by vkostand          #+#    #+#             */
-/*   Updated: 2024/03/01 22:26:26 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/06/11 19:22:09 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char	*remove_line(char *buffer)
 		return (NULL);
 	}
 	i++;
-	without_line = (char *)malloc(sizeof(char) * (ft_strlen(buffer) - i + 1));
+	without_line = (char *)malloc(sizeof(char) * (gnl_strlen(buffer) - i + 1));
 	if (!without_line)
 		return (NULL);
 	j = 0;
@@ -78,7 +78,7 @@ static char	*read_line(int fd, char *buffer)
 	rd_line = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!rd_line)
 		return (NULL);
-	while (bufsize > 0 && !ft_strchr(buffer, '\n'))
+	while (bufsize > 0 && !gnl_strchr(buffer, '\n'))
 	{
 		bufsize = read(fd, rd_line, BUFFER_SIZE);
 		if (bufsize < 0)
@@ -87,7 +87,7 @@ static char	*read_line(int fd, char *buffer)
 			return (NULL);
 		}
 		rd_line[bufsize] = '\0';
-		buffer = ft_join(buffer, rd_line);
+		buffer = gnl_join(buffer, rd_line);
 	}
 	free(rd_line);
 	return (buffer);

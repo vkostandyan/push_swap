@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/24 17:31:45 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/27 18:53:56 by vkostand         ###   ########.fr       */
+/*   Created: 2024/02/29 19:13:38 by vkostand          #+#    #+#             */
+/*   Updated: 2024/06/11 19:22:17 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	main(int argc, char **argv)
-{
-	t_list	*stack_a;
-	t_list	*stack_b;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-	if (!check_input(argc, argv))
-		return (0);
-	stack_a = fill_stack_values(argv);
-	stack_b = NULL;
-	push_swap(argv, &stack_a, &stack_b);
-	free_stack(stack_a, argv);
-	return (0);
-}
+# include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
+
+char	*get_next_line(int fd);
+int		gnl_strlen(const char *s);
+int		gnl_strchr(const char *s, int c);
+char	*gnl_strjoin(char *s1, char *s2);
+char	*gnl_join(char *s1, char *s2);
+
+#endif

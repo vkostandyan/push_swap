@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 19:54:40 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/27 17:39:30 by vkostand         ###   ########.fr       */
+/*   Created: 2024/04/24 17:31:45 by vkostand          #+#    #+#             */
+/*   Updated: 2024/06/11 19:34:43 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	strcmp(const char *s1, char *s2)
+int	main(int argc, char **argv)
 {
-	int	i;
+	t_list	*stack_a;
+	t_list	*stack_b;
 
-	i = 0;
-	while (s1[i] == s2[i] && (s1[i] != '\0' || s2[i] != '\0'))
-		i++;
-	return (s1[i] - s2[i]);
+	if (!check_input(argc, argv))
+		return (0);
+	stack_a = fill_stack_values(argv);
+	stack_b = NULL;
+	push_swap(argv, &stack_a, &stack_b);
+	free_stack(stack_a, argv);
+	return (0);
 }
-
-// int main()
-// {
-// 	printf("%d", ft_strcmp("sa\n", "sa\n"));
-// 	return (0);
-// }
