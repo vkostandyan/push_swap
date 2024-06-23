@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 15:11:23 by vkostand          #+#    #+#             */
-/*   Updated: 2024/04/27 18:41:17 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/06/23 15:36:08 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,21 +71,6 @@ static int	get_input(t_list **stack_a, t_list **stack_b)
 	return (1);
 }
 
-// int	stack_len(t_list **stack)
-// {
-// 	int		i;
-// 	t_list	*tmp;
-
-// 	i = 0;
-// 	tmp = *stack;
-// 	while (tmp)
-// 	{
-// 		i++;
-// 		tmp = tmp->next;
-// 	}
-// 	return (i);
-// }
-
 static void	check_result(t_list **stack_a, t_list **stack_b)
 {
 	int		len;
@@ -114,8 +99,19 @@ int	main(int argc, char **argv)
 	stack_a = fill_stack_values(argv);
 	stack_b = NULL;
 	if (!get_input(&stack_a, &stack_b))
+	{
+		if (stack_a)
+			free_stack(stack_a, argv);
+		if (stack_b)
+			free_stack(stack_b, argv);
+		system("leaks checker");
 		return (0);
+	}
 	check_result(&stack_a, &stack_b);
-	free_stack(stack_a, argv);
+	if (stack_a)
+			free_stack(stack_a, argv);
+	if (stack_b)
+		free_stack(stack_b, argv);
+	system("leaks checker");
 	return (0);
 }
