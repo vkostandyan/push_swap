@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 15:11:23 by vkostand          #+#    #+#             */
-/*   Updated: 2024/06/23 15:36:08 by vkostand         ###   ########.fr       */
+/*   Updated: 2024/06/23 15:38:25 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ int	main(int argc, char **argv)
 			free_stack(stack_a, argv);
 		if (stack_b)
 			free_stack(stack_b, argv);
-		system("leaks checker");
 		return (0);
 	}
 	check_result(&stack_a, &stack_b);
@@ -112,6 +111,5 @@ int	main(int argc, char **argv)
 			free_stack(stack_a, argv);
 	if (stack_b)
 		free_stack(stack_b, argv);
-	system("leaks checker");
 	return (0);
 }
