@@ -16,9 +16,7 @@ void	reverse_rotate(t_list **stack)
 {
 	t_list	*prelast;
 	t_list	*last;
-	t_list	*temp;
 
-	temp = *stack;
 	if (!(*stack) || !(*stack)->next)
 		return ;
 	prelast = *stack;

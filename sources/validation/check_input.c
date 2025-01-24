@@ -46,11 +46,9 @@ int	count_len(char **argv)
 	char	**str;
 	int		i;
 	int		j;
-	int		c;
 	int		len;
 
 	i = 0;
-	c = -1;
 	len = 0;
 	while (argv[++i])
 	{
@@ -127,6 +125,7 @@ int	check_input(int argc, char **argv)
 	if (!all_numbers(argv) || have_dublicate(numbers, len) || !not_empty(argv))
 	{
 		ft_putstr_fd("Error\n", 2);
+		free(numbers);
 		return (0);
 	}
 	free(numbers);
