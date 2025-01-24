@@ -6,7 +6,7 @@
 /*   By: vkostand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 15:11:23 by vkostand          #+#    #+#             */
-/*   Updated: 2024/06/23 15:38:25 by vkostand         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:15:54 by vkostand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	main(int argc, char **argv)
 	}
 	check_result(&stack_a, &stack_b);
 	if (stack_a)
-			free_stack(stack_a, argv);
+		free_stack(stack_a, argv);
 	if (stack_b)
 		free_stack(stack_b, argv);
 	return (0);
